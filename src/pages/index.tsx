@@ -33,6 +33,8 @@ function FadeIn({
 }
 
 const Home: NextPage = () => {
+  const [showInvite, setShowInvite] = useState<boolean>(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -67,14 +69,17 @@ const Home: NextPage = () => {
         </FadeIn>
         <br />
         <br />
-        <div style={{ cursor: "pointer" }}>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => setShowInvite(!showInvite)}
+        >
           <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
             <Image width={120} height={80} src={env5} alt="" />
           </FadeIn>
         </div>
         <br />
 
-        {/* <Invite /> */}
+        {showInvite && <Invite />}
       </main>
     </div>
   );
