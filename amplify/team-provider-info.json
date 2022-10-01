@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-weddinginvitations-dev-105323-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-weddinginvitations-dev-105323-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-weddinginvitations-dev-105323-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-weddinginvitations-dev-105323-deployment",
+      "UnauthRoleName": "amplify-weddinginvitations-dev-105323-unauthRole",
+      "StackName": "amplify-weddinginvitations-dev-105323",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-weddinginvitations-dev-105323/913cc1f0-41a9-11ed-b06a-0e0eebec6833",
+      "AmplifyAppId": "d2qgyeuo4tgvuy"
+    }
+  }
+}
