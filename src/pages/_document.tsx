@@ -24,7 +24,7 @@ export default class MyDocument extends Document<DocumentCustomInitialProps> {
         <Head>
           <link rel="shortcut icon" href="/images/heart.png" />
         </Head>
-        <body>
+        <body style={{ backgroundColor: "black" }}>
           <Main />
           <NextScript />
         </body>

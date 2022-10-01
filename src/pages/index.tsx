@@ -54,9 +54,11 @@ const Home: NextPage = () => {
         </FadeIn>
         <br />
         <br />
-        <FadeIn customProps={{ delay: 4000, config: { duration: 4000 } }}>
-          <Image width={120} height={80} src={env5} />
-        </FadeIn>
+        <div style={{ cursor: "pointer" }}>
+          <FadeIn customProps={{ delay: 4000, config: { duration: 4000 } }}>
+            <Image width={120} height={80} src={env5} />
+          </FadeIn>
+        </div>
         <br />
         <br />
       </main>
