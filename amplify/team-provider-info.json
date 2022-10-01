@@ -11,5 +11,18 @@
       "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-weddinginvitations-dev-105323/913cc1f0-41a9-11ed-b06a-0e0eebec6833",
       "AmplifyAppId": "d2qgyeuo4tgvuy"
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-weddinginvitations-prod-110041-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-weddinginvitations-prod-110041-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-weddinginvitations-prod-110041-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-weddinginvitations-prod-110041-deployment",
+      "UnauthRoleName": "amplify-weddinginvitations-prod-110041-unauthRole",
+      "StackName": "amplify-weddinginvitations-prod-110041",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-weddinginvitations-prod-110041/95b38790-41aa-11ed-9e47-0e5f2980c09d",
+      "AmplifyAppId": "d2qgyeuo4tgvuy"
+    }
   }
 }
