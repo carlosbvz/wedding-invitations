@@ -48,15 +48,27 @@ const Home: NextPage = () => {
         {/* Fire */}
         <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
           <div className={styles.firecontainer}>
-            <Image width={120} height={80} src={fire} className={styles.fire} />
-            <Image width={120} height={80} src={fire} className={styles.fire} />
+            <Image
+              width={120}
+              height={80}
+              src={fire}
+              className={styles.fire}
+              alt=""
+            />
+            <Image
+              width={120}
+              height={80}
+              src={fire}
+              className={styles.fire}
+              alt=""
+            />
           </div>
         </FadeIn>
         <br />
         <br />
         <div style={{ cursor: "pointer" }}>
           <FadeIn customProps={{ delay: 2000, config: { duration: 10000 } }}>
-            <Image width={120} height={80} src={env5} />
+            <Image width={120} height={80} src={env5} alt="" />
           </FadeIn>
         </div>
         <br />

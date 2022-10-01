@@ -4,6 +4,7 @@
 
 .main {
   min-height: 100vh;
+  color: "white";
   padding: 6rem 0;
   flex: 1;
   display: flex;
@@ -12,6 +13,7 @@
 }
 
 .title {
+  color: "white";
   margin: 0;
   line-height: 1.15;
   max-width: 750px;
