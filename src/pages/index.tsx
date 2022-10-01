@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import env5 from "../public/images/env5.png";
 import fire from "../public/images/fire-animated.gif";
+import Invite from "../components/Invite";
 
 import { animated, useSpring } from "@react-spring/web";
 
@@ -67,12 +68,13 @@ const Home: NextPage = () => {
         <br />
         <br />
         <div style={{ cursor: "pointer" }}>
-          <FadeIn customProps={{ delay: 2000, config: { duration: 10000 } }}>
+          <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
             <Image width={120} height={80} src={env5} alt="" />
           </FadeIn>
         </div>
         <br />
-        <br />
+
+        {/* <Invite /> */}
       </main>
     </div>
   );
