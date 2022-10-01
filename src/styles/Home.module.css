@@ -18,9 +18,23 @@
   font-size: 2rem;
   text-align: center;
 }
+
+.firecontainer {
+  margin-top: 30px;
+  display: flex;
+  width: 560px;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 768px) {
   .title {
     font-size: 0.75rem;
     max-width: 350px;
+  }
+  .firecontainer {
+    width: 360px;
+  }
+  .fire {
+    height: 40px;
   }
 }

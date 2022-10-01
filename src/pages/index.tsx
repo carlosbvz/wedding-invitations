@@ -17,10 +17,14 @@ const Home: NextPage = () => {
           {" "}
           {"It's dangerous to go alone! Take this."}
         </h1>
+        {/* Fire */}
+        <div className={styles.firecontainer}>
+          <Image width={120} height={80} src={fire} className={styles.fire} />
+          <Image width={120} height={80} src={fire} className={styles.fire} />
+        </div>
         <Image width={120} height={80} src={env5} />
         <br />
         <br />
-        <Image width={120} height={80} src={fire} />
       </main>
     </div>
   );
