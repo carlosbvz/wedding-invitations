@@ -6,7 +6,6 @@ import Image from "next/image";
 import env5 from "../public/images/env5.png";
 import fire from "../public/images/fire-animated.gif";
 import Invite from "../components/Invite";
-
 import { animated, useSpring } from "@react-spring/web";
 
 function FadeIn({
@@ -21,7 +20,7 @@ function FadeIn({
     to: { opacity: 1 },
     from: { opacity: 0 },
     reset: true,
-    // reverse: flip,
+    reverse: flip,
     ...customProps,
   });
 
@@ -32,8 +31,22 @@ function FadeIn({
   );
 }
 
+function Letter({ onShowInvite }: { onShowInvite: () => void }) {
+  return (
+    <div style={{ cursor: "pointer" }} onClick={onShowInvite}>
+      <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
+        <Image width={120} height={80} src={env5} alt="" />
+      </FadeIn>
+    </div>
+  );
+}
+
 const Home: NextPage = () => {
   const [showInvite, setShowInvite] = useState<boolean>(false);
+
+  function handleShowInvite() {
+    setShowInvite(!showInvite);
+  }
 
   return (
     <div className={styles.container}>
@@ -42,44 +55,41 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
-          <h1 className={styles.title}>
-            {"It's dangerous to go alone! Take this."}
-          </h1>
-        </FadeIn>
-
-        {/* Fire */}
-        <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
-          <div className={styles.firecontainer}>
-            <Image
-              width={120}
-              height={80}
-              src={fire}
-              className={styles.fire}
-              alt=""
-            />
-            <Image
-              width={120}
-              height={80}
-              src={fire}
-              className={styles.fire}
-              alt=""
-            />
-          </div>
-        </FadeIn>
-        <br />
-        <br />
-        <div
-          style={{ cursor: "pointer" }}
-          onClick={() => setShowInvite(!showInvite)}
-        >
-          <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
-            <Image width={120} height={80} src={env5} alt="" />
-          </FadeIn>
-        </div>
-        <br />
-
-        {showInvite && <Invite />}
+        {showInvite ? (
+          <Invite />
+        ) : (
+          <>
+            {" "}
+            <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
+              <h1 className={styles.title} style={{ color: "white" }}>
+                {"It's dangerous to go alone! Take this."}
+              </h1>
+            </FadeIn>
+            {/* Fire */}
+            <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
+              <div className={styles.firecontainer}>
+                <Image
+                  width={120}
+                  height={80}
+                  src={fire}
+                  className={styles.fire}
+                  alt=""
+                />
+                <Image
+                  width={120}
+                  height={80}
+                  src={fire}
+                  className={styles.fire}
+                  alt=""
+                />
+              </div>
+            </FadeIn>
+            <br />
+            <br />
+            <Letter onShowInvite={handleShowInvite} />
+            <br />
+          </>
+        )}
       </main>
     </div>
   );

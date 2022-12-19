@@ -5,7 +5,7 @@ type Props = {};
 export default function Invite({}: Props) {
   return (
     <div style={{ position: "absolute" }}>
-      <p>wop</p>
+      <p style={{ color: "white" }}>wop</p>
     </div>
   );
 }
