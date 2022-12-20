@@ -5,12 +5,21 @@
 export type CreateInviteeInput = {
   id?: string | null,
   name: string,
-  description?: string | null,
+  host: InviteeHost,
+  hasConfirmed: boolean,
+  _version?: number | null,
 };
+
+export enum InviteeHost {
+  CARLOS = "CARLOS",
+  PAOLA = "PAOLA",
+}
+
 
 export type ModelInviteeConditionInput = {
   name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
+  host?: ModelInviteeHostInput | null,
+  hasConfirmed?: ModelBooleanInput | null,
   and?: Array< ModelInviteeConditionInput | null > | null,
   or?: Array< ModelInviteeConditionInput | null > | null,
   not?: ModelInviteeConditionInput | null,
@@ -56,29 +65,49 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelInviteeHostInput = {
+  eq?: InviteeHost | null,
+  ne?: InviteeHost | null,
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type Invitee = {
   __typename: "Invitee",
   id: string,
   name: string,
-  description?: string | null,
+  host: InviteeHost,
+  hasConfirmed: boolean,
   createdAt: string,
   updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
 };
 
 export type UpdateInviteeInput = {
   id: string,
   name?: string | null,
-  description?: string | null,
+  host?: InviteeHost | null,
+  hasConfirmed?: boolean | null,
+  _version?: number | null,
 };
 
 export type DeleteInviteeInput = {
   id: string,
+  _version?: number | null,
 };
 
 export type ModelInviteeFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
+  host?: ModelInviteeHostInput | null,
+  hasConfirmed?: ModelBooleanInput | null,
   and?: Array< ModelInviteeFilterInput | null > | null,
   or?: Array< ModelInviteeFilterInput | null > | null,
   not?: ModelInviteeFilterInput | null,
@@ -104,6 +133,7 @@ export type ModelInviteeConnection = {
   __typename: "ModelInviteeConnection",
   items:  Array<Invitee | null >,
   nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type CreateInviteeMutationVariables = {
@@ -116,9 +146,13 @@ export type CreateInviteeMutation = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -132,9 +166,13 @@ export type UpdateInviteeMutation = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -148,9 +186,13 @@ export type DeleteInviteeMutation = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -163,9 +205,13 @@ export type GetInviteeQuery = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -182,11 +228,43 @@ export type ListInviteesQuery = {
       __typename: "Invitee",
       id: string,
       name: string,
-      description?: string | null,
+      host: InviteeHost,
+      hasConfirmed: boolean,
       createdAt: string,
       updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncInviteesQueryVariables = {
+  filter?: ModelInviteeFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncInviteesQuery = {
+  syncInvitees?:  {
+    __typename: "ModelInviteeConnection",
+    items:  Array< {
+      __typename: "Invitee",
+      id: string,
+      name: string,
+      host: InviteeHost,
+      hasConfirmed: boolean,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -195,9 +273,13 @@ export type OnCreateInviteeSubscription = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -206,9 +288,13 @@ export type OnUpdateInviteeSubscription = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -217,8 +303,12 @@ export type OnDeleteInviteeSubscription = {
     __typename: "Invitee",
     id: string,
     name: string,
-    description?: string | null,
+    host: InviteeHost,
+    hasConfirmed: boolean,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };

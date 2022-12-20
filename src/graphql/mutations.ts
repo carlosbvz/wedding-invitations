@@ -10,9 +10,13 @@ export const createInvitee = /* GraphQL */ `
     createInvitee(input: $input, condition: $condition) {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -24,9 +28,13 @@ export const updateInvitee = /* GraphQL */ `
     updateInvitee(input: $input, condition: $condition) {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -38,9 +46,13 @@ export const deleteInvitee = /* GraphQL */ `
     deleteInvitee(input: $input, condition: $condition) {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

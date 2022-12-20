@@ -1,37 +1,26 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import fire from "../public/images/fire-animated.gif";
-import Invite from "./Invite";
 import Image from "next/image";
 import env5 from "../public/images/env5.png";
 import styles from "../styles/Zelda.module.css";
 import FadeIn from "./FadeIn";
 
-function Letter({ onShowInvite }: { onShowInvite: () => void }) {
+function Letter() {
   return (
-    <div style={{ cursor: "pointer" }} onClick={onShowInvite}>
-      <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
-        <Image width={120} height={80} src={env5} alt="" />
-      </FadeIn>
-    </div>
+    <Link href="/invite">
+      <div style={{ cursor: "pointer" }}>
+        <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
+          <Image width={120} height={80} src={env5} alt="" />
+        </FadeIn>
+      </div>
+    </Link>
   );
 }
 
 type Props = {};
 
 export default function Zelda({}: Props) {
-  const [showInvite, setShowInvite] = useState<boolean>(false);
-
-  function handleShowInvite() {
-    setShowInvite(!showInvite);
-  }
-
-  if (showInvite)
-    return (
-      <div className={styles.main}>
-        <Invite />
-      </div>
-    );
-
   return (
     <div className={styles.main}>
       <FadeIn customProps={{ delay: 400, config: { duration: 8000 } }}>
@@ -60,7 +49,7 @@ export default function Zelda({}: Props) {
       </FadeIn>
       <br />
       <br />
-      <Letter onShowInvite={handleShowInvite} />
+      <Letter />
       <br />
     </div>
   );

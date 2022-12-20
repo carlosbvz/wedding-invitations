@@ -1,10 +1,11 @@
 import Image from "next/image";
 import heart from "../public/images/heart.png";
-import FadeIn from "./FadeIn";
+import FadeIn from "../components/FadeIn";
+import CenterContainer from "../components/CenterContainer";
 
 type Props = {};
 
-export default function Invite({}: Props) {
+export default function invite({}: Props) {
   return (
     <FadeIn customProps={{ delay: 400, config: { duration: 3000 } }}>
       <div
@@ -19,19 +20,20 @@ export default function Invite({}: Props) {
         <Image width={80} height={60} src={heart} alt="" />
         <Image width={80} height={60} src={heart} alt="" />
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
+
+      <CenterContainer style={{ marginTop: "100px" }}>
         <h1 style={{ color: "white" }}>Carlos Y Paola</h1>
         <p style={{ color: "white" }}>Te invitamos a nuestra boda</p>
         <p style={{ color: "white" }}>Sabado 13 de Enero, 2023</p>
         <p style={{ color: "white" }}>4:00 pm</p>
-      </div>
+
+        <br />
+        <br />
+      </CenterContainer>
+
+      <CenterContainer>
+        <p style={{ color: "white", cursor: "pointer" }}>{"-> Confirmar"}</p>
+      </CenterContainer>
     </FadeIn>
   );
 }

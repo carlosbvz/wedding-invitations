@@ -7,9 +7,13 @@ export const onCreateInvitee = /* GraphQL */ `
     onCreateInvitee {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -18,9 +22,13 @@ export const onUpdateInvitee = /* GraphQL */ `
     onUpdateInvitee {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -29,9 +37,13 @@ export const onDeleteInvitee = /* GraphQL */ `
     onDeleteInvitee {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

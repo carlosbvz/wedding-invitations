@@ -7,9 +7,13 @@ export const getInvitee = /* GraphQL */ `
     getInvitee(id: $id) {
       id
       name
-      description
+      host
+      hasConfirmed
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -23,11 +27,45 @@ export const listInvitees = /* GraphQL */ `
       items {
         id
         name
-        description
+        host
+        hasConfirmed
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncInvitees = /* GraphQL */ `
+  query SyncInvitees(
+    $filter: ModelInviteeFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncInvitees(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        host
+        hasConfirmed
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;
