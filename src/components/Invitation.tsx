@@ -1,11 +1,30 @@
 import Image from "next/image";
 import heart from "../public/images/heart.png";
-import FadeIn from "../components/FadeIn";
-import CenterContainer from "../components/CenterContainer";
+import FadeIn from "./FadeIn";
+import CenterContainer from "./CenterContainer";
+import { Invitee } from "../models";
+import { API, graphqlOperation } from "aws-amplify";
+import { updateInvitee } from "../graphql/mutations";
 
-type Props = {};
+type Props = {
+  invitee: Invitee;
+};
 
-export default function invite({}: Props) {
+export default function Invitation({ invitee }: Props) {
+  const handleConfirm = async () => {
+    console.log("confirm");
+    await API.graphql(
+      graphqlOperation(updateInvitee, {
+        input: {
+          id: invitee.id,
+          name: invitee.name,
+          host: invitee.host,
+          hasConfirmed: true,
+        },
+      })
+    );
+  };
+
   return (
     <FadeIn customProps={{ delay: 400, config: { duration: 3000 } }}>
       <div
@@ -29,10 +48,14 @@ export default function invite({}: Props) {
 
         <br />
         <br />
-      </CenterContainer>
-
-      <CenterContainer>
-        <p style={{ color: "white", cursor: "pointer" }}>{"-> Confirmar"}</p>
+        <CenterContainer>
+          <p
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={handleConfirm}
+          >
+            {"-> Confirmar"}
+          </p>
+        </CenterContainer>
       </CenterContainer>
     </FadeIn>
   );
