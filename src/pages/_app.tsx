@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Amplify } from "aws-amplify";
 import Head from "next/head";
-import awsconfig from "../aws-exports";
+// import awsconfig from "../aws-exports";
 import GlobalProvider from "../contexts/GlobalContext";
 
 const awsmobile = {
