@@ -1,33 +1,15 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import fire from "../public/images/fire-animated.gif";
 import Image from "next/image";
 import env5 from "../public/images/env5.png";
 import styles from "../styles/Zelda.module.css";
 import FadeIn from "./FadeIn";
-import { Invitee } from "../models";
 import Invitation from "./Invitation";
 
-function Letter() {
-  return (
-    <Link href="/invite">
-      <div style={{ cursor: "pointer" }}>
-        <FadeIn customProps={{ delay: 2000, config: { duration: 8000 } }}>
-          <Image width={120} height={80} src={env5} alt="" />
-        </FadeIn>
-      </div>
-    </Link>
-  );
-}
-
-type Props = {
-  invitee: Invitee;
-};
-
-export default function Zelda({ invitee }: Props) {
+export default function Zelda() {
   const [showInvite, setShowInvite] = useState(false);
 
-  if (showInvite) return <Invitation invitee={invitee} />;
+  if (showInvite) return <Invitation />;
   else
     return (
       <div className={styles.main}>
